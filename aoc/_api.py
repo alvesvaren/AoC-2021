@@ -59,8 +59,6 @@ def get_input(day: int, year: int = YEAR, overwrite: bool = False):
         data = _set_read_file(
             file_name,
             response.text[:-1])
-    try: 
-        assert data is not None
-    except:
+    if data is None:
         raise FileNotFoundError(f"Data could not be fetched for day {day}")
     return data
